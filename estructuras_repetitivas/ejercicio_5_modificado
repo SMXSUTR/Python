@@ -1,0 +1,51 @@
+while True:
+    print("===== MENÚ =====")
+    print("1. Ingresar precios de productos")
+    print("2. Salir")
+    print("================")
+
+    opcion = input("Elige una opción (1-2): ").strip()
+
+    if opcion == "1":
+        print(">>> Has elegido INGRESAR.\n")
+        baratos = 0
+        medios = 0
+        caros = 0
+        muy_caros = 0
+        i=0
+        while i<=20:
+            precio = float(input(f"Dime el precio del producto {i} en pesos: "))
+            if precio < 20000:
+                baratos += 1
+            elif precio >= 20000 and precio < 50000:
+                medios += 1
+            elif precio >= 50000 and precio < 100000:
+                caros += 1
+            elif precio >= 100000:
+                muy_caros += 1
+            else:
+                print("Precio inválido, no se tendrá en cuenta")
+                continue
+            i+=1
+        # Resultados
+        if baratos > 0:
+            print(f"{baratos} productos son BARATOS (<20,000 pesos)")
+        else:
+            print("No se registraron productos baratos.")
+        if medios > 0:
+            print(f"{medios} productos son de PRECIO MEDIO (20,000 - 49,999 pesos)")
+        else:
+            print("No se registraron productos de precio medio.")
+        if caros > 0:
+            print(f"{caros} productos son CAROS (50,000 - 99,999 pesos)")
+        else:
+            print("No se registraron productos caros.")
+        if muy_caros > 0:
+            print(f"{muy_caros} productos son MUY CAROS (≥100,000 pesos)")
+        else:
+            print("No se registraron productos muy caros.")
+    elif opcion == "2":
+        print(">>> Saliendo del programa. ¡Hasta luego!")
+        break
+    else:
+        print(">>> Opción no válida. Intenta de nuevo.\n")
